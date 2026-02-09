@@ -1,4 +1,4 @@
-package q7;
+package section2.q9;
 
 import java.io.*;
 import java.util.*;
@@ -8,25 +8,24 @@ public class Main {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
 
-    public String solution(String word) {
+    public int solution(String word) {
         char[] arr = word.toCharArray();
+        
+        String answer = "";
 
-        int lt = 0;
-        int rt = arr.length - 1;
+        for (char c : arr) {
+            if (!Character.isDigit(c)) {
+                continue;
+            }
 
-        String answer = "YES";
-
-        while(lt < rt) {
-            if (Character.toLowerCase(arr[lt]) != Character.toLowerCase(arr[rt])) {
-                answer = "NO";
-                break;
+            if (answer.isEmpty() && c == '0') {
+                continue;
             } else {
-                lt++;
-                rt--;
+                answer += c;
             }
         }
 
-        return answer;
+        return Integer.parseInt(answer);
     }
 
     public static void main(String[] args) throws Exception {

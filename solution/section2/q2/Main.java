@@ -1,4 +1,4 @@
-package q1;
+package section2.q2;
 
 import java.io.*;
 import java.util.*;
@@ -8,16 +8,18 @@ public class Main {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
 
-    public int solution(String word, char c) {
-        int answer = 0;
+    public String solution(String word) {
+        String answer = "";
+        
+        char[] arr = word.toCharArray();
 
-        char x = Character.toUpperCase(c);
-        char[] arr = word.toUpperCase().toCharArray();
-
-        for (char i : arr){
-            if (i == x) {
-                answer++;
+        for (char i : arr) {
+            if (Character.isUpperCase(i)) {
+                i = Character.toLowerCase(i);
+            } else {
+                i = Character.toUpperCase(i);
             }
+            answer += i;
         }
 
         return answer;
@@ -27,8 +29,7 @@ public class Main {
         Main m = new Main();
 
         String word = br.readLine();
-        char c = br.readLine().charAt(0);
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(word));
     }
 }

@@ -1,4 +1,4 @@
-package q8;
+package section2.q5;
 
 import java.io.*;
 import java.util.*;
@@ -7,38 +7,32 @@ public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
-    
+
     public String solution(String word) {
         char[] arr = word.toCharArray();
 
         int lt = 0;
         int rt = arr.length - 1;
 
-        // found7, time: study; Yduts; emit, 7Dnuof
         while (lt < rt) {
-            if (!Character.isLetter(arr[lt])) {
+            if (!Character.isAlphabetic(arr[lt])) {
                 lt++;
-
-                continue;
-            }
-
-            if (!Character.isLetter(arr[rt])) {
+            } else if (!Character.isAlphabetic(arr[rt])) {
                 rt--;
-
-                continue;
             }
-                
-            if (Character.toLowerCase(arr[lt]) != Character.toLowerCase(arr[rt])) {
-                return "NO";
-            }
+            else {
+                char tmp = arr[lt];
+                arr[lt] = arr[rt];
+                arr[rt] = tmp;
 
-            lt++;
-            rt--;
+                lt++;
+                rt--;
+            }
         }
 
-        return "YES";
+        return String.valueOf(arr);
     }
-
+    
     public static void main(String[] args) throws Exception {
         Main m = new Main();
 

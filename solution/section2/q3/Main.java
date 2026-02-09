@@ -1,4 +1,4 @@
-package q6;
+package section2.q3;
 
 import java.io.*;
 import java.util.*;
@@ -9,11 +9,22 @@ public class Main {
     static StringBuilder sb = new StringBuilder();
 
     public String solution(String word) {
-        String answer = "";
+        if (word == null || word.isEmpty()) {
+            return "";
+        }
 
-        for (int i=0; i < word.length(); i++) {
-            if (word.indexOf(word.charAt(i)) == i) {
-                answer += word.charAt(i);
+        st = new StringTokenizer(word);
+
+        String answer = "";
+        String stWord = "";
+        int len = 0;
+
+        while (st.hasMoreTokens()) {
+            stWord = st.nextToken();
+
+            if (stWord.length() > len) {
+                answer = stWord;
+                len = answer.length();
             }
         }
 
@@ -24,7 +35,6 @@ public class Main {
         Main m = new Main();
 
         String word = br.readLine();
-
         System.out.println(m.solution(word));
     }
 }

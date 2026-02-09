@@ -1,4 +1,4 @@
-package q10;
+package section2.q10;
 
 import java.io.*;
 import java.util.*;
