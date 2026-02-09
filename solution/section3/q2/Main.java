@@ -8,17 +8,34 @@ public class Main {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
 
-    public int solution(String word, char c) {
-        int answer = 0;
+    public int solution(int no, String line) {
+        st = new StringTokenizer(line);
+
+        int[] list = new int[no];
+
+        for (int i=0; i<no; i++) {
+            list[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int answer = 1;
+        int m = list[0];
+        
+        for (int x=1; x<no; x++) {
+            if (m < list[x]) {
+                m = list[x];
+                answer++;
+            }
+        }
+
         return answer;
     }
 
     public static void main(String[] args) throws Exception {
         Main m = new Main();
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int no = Integer.parseInt(br.readLine());
+        String line = br.readLine();
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(no, line));
     }
 }
