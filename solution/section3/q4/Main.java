@@ -8,17 +8,38 @@ public class Main {
     static StringTokenizer st;
     static StringBuilder sb = new StringBuilder();
 
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    public String solution(int no) {
+        int a = 1;
+        int b = 1;
+
+        for (int i=0; i<no; i++) {
+            if (i==0) {
+                sb.append(a + " ");
+                continue;
+            }
+
+            if (i==1) {
+                sb.append(b + " ");
+                continue;
+            }
+
+            int tmp = a + b;
+            a = b;
+            b = tmp;
+            
+            sb.append(b + " ");
+
+            tmp = 0;
+        }
+
+        return sb.toString();
     }
 
     public static void main(String[] args) throws Exception {
         Main m = new Main();
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int no = Integer.parseInt(br.readLine());
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(no));
     }
 }
