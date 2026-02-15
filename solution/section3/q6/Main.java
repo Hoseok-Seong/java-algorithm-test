@@ -4,9 +4,48 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    public String solution(int no, String lists) {
+        StringBuilder sb = new StringBuilder();
+        int[] arr = new int[no];
+
+        StringTokenizer st = new StringTokenizer(lists);
+
+        for (int i=0; i<no; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        int result = 0;
+
+        for (int i=0; i<no; i++) {
+            while(arr[i] != 0) {
+                result = (result * 10) + (arr[i] % 10);
+                arr[i] /= 10;
+            }
+            arr[i] = result;
+
+            result = 0;
+        }
+
+        for (int i=0; i<no; i++) {
+            if (arr[i] == 1) {
+                arr[i] = 0;
+            }
+
+            for (int j=2; j<arr[i]; j++) {
+                if (arr[i] % j == 0) {
+                    arr[i] = 0;
+                    break;
+                }
+            }
+        }
+
+        for (int i=0; i<no; i++) {
+            if (arr[i] != 0) {
+                sb.append(arr[i] + " ");
+            }
+        }
+
+        return sb.toString();
     }
 
     public static void main(String[] args) throws Exception {
@@ -14,9 +53,9 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int no = Integer.parseInt(br.readLine());
+        String lists = br.readLine();
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(no, lists));
     }
 }
