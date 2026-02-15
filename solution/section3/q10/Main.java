@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
+    public int solution(int n, String nos) {
         int answer = 0;
         return answer;
     }
@@ -14,9 +14,9 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int n = Integer.parseInt(br.readLine());
+        String nos = br.readLine();
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(n, nos));
     }
 }
