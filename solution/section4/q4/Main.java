@@ -4,9 +4,28 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
+    // 8 6
+    // 1 2 1 3 1 1 1 2
+    public int solution(int n, int k, int[] arr) {
+        int cnt = 0;
         int answer = 0;
-        return answer;
+        int start = 0;
+
+        for (int i=0; i<n; i++) {
+            answer += arr[i];
+
+            // 조건 만족할때까지 왼쪽 포인터 줄여야 함
+            while (answer > k) {
+                answer -= arr[start];
+                start++;
+            }
+
+            if (answer == k) {
+                cnt++;
+            }
+        }
+
+        return cnt;
     }
 
     public static void main(String[] args) throws Exception {
@@ -14,9 +33,19 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        System.out.println(m.solution(word, c));
+        int n = Integer.parseInt(st.nextToken());
+        int k = Integer.parseInt(st.nextToken());
+
+        int[] arr = new int[n];
+
+        st = new StringTokenizer(br.readLine());
+
+        for (int i=0; i<n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        System.out.println(m.solution(n, k, arr));
     }
 }
