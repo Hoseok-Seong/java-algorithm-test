@@ -4,8 +4,22 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
+    public int solution(int no) {
         int answer = 0;
+        int sum = 0;
+        int start = 1;
+
+        for (int i=1; i<no; i++) {
+            sum += i;
+            while (sum > no) {
+                sum -= start;
+                start++;
+            }
+            if (sum == no) {
+                answer++;
+            }
+        }
+
         return answer;
     }
 
@@ -14,9 +28,8 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int no = Integer.parseInt(br.readLine());
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(no));
     }
 }
