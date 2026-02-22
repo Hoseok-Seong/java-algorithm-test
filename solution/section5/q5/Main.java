@@ -4,8 +4,28 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
+    // 10 3
+    // 13 15 34 23 45 65 33 11 26 42
+    public int solution(int no, int target, int[] arr) {
+        int answer = -1;
+
+        TreeSet<Integer> tSet = new TreeSet<>(Collections.reverseOrder());
+
+        for (int i=0; i<no; i++) {
+            for (int j=i+1; j<no; j++) {
+                for (int k=j+1; k<no; k++) {
+                    tSet.add(arr[i] + arr[j] + arr[k]);                    
+                }
+            }
+        }
+
+        int cnt = 0;
+
+        for (int i : tSet) {
+            cnt++;
+            if (cnt == target) return i;
+        }
+
         return answer;
     }
 
@@ -14,9 +34,19 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        System.out.println(m.solution(word, c));
+        int no = Integer.parseInt(st.nextToken());
+        int target = Integer.parseInt(st.nextToken());
+
+        st = new StringTokenizer(br.readLine());
+
+        int[] arr = new int[no];
+
+        for (int i=0; i<no; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        System.out.println(m.solution(no, target, arr));
     }
 }
