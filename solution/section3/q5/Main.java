@@ -1,7 +1,6 @@
 package section3.q5;
 
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public int solution(int no) {
