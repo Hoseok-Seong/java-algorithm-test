@@ -4,13 +4,26 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(int no, String paper) {
-        int answer = 0;
+    // 15
+    // BACBACCACCBDEDE
+    public Character solution(int no, String paper) {
+        char answer = ' ';
 
         char[] arr = paper.toCharArray();
 
-        for (int i=0; i < no; i++) {
-            System.out.println(arr[i]);
+        HashMap<Character, Integer> map = new HashMap<>();
+
+        for (char x : arr) {
+            map.put(x, map.getOrDefault(x, 0) + 1);
+        }
+
+        int max = Integer.MIN_VALUE;
+
+        for (char x : map.keySet()) {
+            max = Math.max(max, map.get(x));
+            if (max == map.get(x)) {
+                answer = x;
+            }
         }
 
         return answer;
