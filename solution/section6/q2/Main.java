@@ -4,9 +4,24 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    // (A(BC)D)EF(G(H)(IJ)K)LM(N)
+    public String solution(String str) {
+        StringBuilder sb = new StringBuilder();
+
+        Deque<Character> stack = new ArrayDeque<>();
+
+        for (char c : str.toCharArray()) {
+            if (c == '(') stack.push(c);
+            else if (c == ')') stack.pop();
+            else {
+                if (stack.isEmpty()) sb.append(c);
+                else {
+                    continue;
+                }
+            }
+        }
+
+        return sb.toString();
     }
 
     public static void main(String[] args) throws Exception {
@@ -14,9 +29,8 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        String str = br.readLine();
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(str));
     }
 }
