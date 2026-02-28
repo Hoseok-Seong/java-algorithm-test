@@ -4,8 +4,23 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
+    public String solution(String subject, String schedule) {
+        String answer = "YES";
+
+        Queue<Character> q = new ArrayDeque<>();
+
+        for (char c : subject.toCharArray()) {
+            q.offer(c);
+        }
+
+        for (char c : schedule.toCharArray()) {
+            if (q.contains(c)) {
+                if (c != q.poll()) return "NO";
+            }
+        }
+
+        if (!q.isEmpty()) return "NO";
+
         return answer;
     }
 
@@ -14,9 +29,9 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        String subject = br.readLine();
+        String schedule = br.readLine();
 
-        System.out.println(m.solution(word, c));
+        System.out.println(m.solution(subject, schedule));
     }
 }
