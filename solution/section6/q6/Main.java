@@ -7,7 +7,7 @@ public class Main {
     public int solution(int prince, int number) {
         int answer = 0;
 
-        Queue<Integer> circle = new ArrayDeque();
+        Queue<Integer> circle = new ArrayDeque<>();
 
         for (int i=1; i<=prince; i++) {
             circle.offer(i);
