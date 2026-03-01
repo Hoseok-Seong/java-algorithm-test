@@ -1,22 +1,17 @@
 package section8.q3;
 
-import java.io.*;
-import java.util.*;
-
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    public int recursive(int i) {
+        if (i == 1) {
+            return 1;
+        } else {
+            return i * recursive(i-1);
+        }
     }
 
     public static void main(String[] args) throws Exception {
         Main m = new Main();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
-
-        System.out.println(m.solution(word, c));
+        System.out.println(m.recursive(5));
     }
 }
