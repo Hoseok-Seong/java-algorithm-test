@@ -4,9 +4,29 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    // 6
+    // 11 7 5 6 10 9
+    public String solution(int n, int[] arr) {
+        StringBuilder sb = new StringBuilder();
+
+        for (int i=1; i<n; i++) {
+            int tmp = arr[i];
+            int j;
+            for (j=i-1; j>=0; j--) {
+                if (arr[j] > tmp) {
+                    arr[j+1] = arr[j];
+                } else {
+                    break;
+                }
+            }
+            arr[j+1] = tmp;
+        }
+
+        for (int i=0; i<n; i++) {
+            sb.append(arr[i] + " ");
+        }
+
+        return sb.toString();
     }
 
     public static void main(String[] args) throws Exception {
@@ -14,9 +34,15 @@ public class Main {
 
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
+        int n = Integer.parseInt(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
-        System.out.println(m.solution(word, c));
+        int[] arr = new int[n];
+
+        for (int i=0; i<n; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
+        }
+
+        System.out.println(m.solution(n, arr));
     }
 }
