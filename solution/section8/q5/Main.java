@@ -1,22 +1,49 @@
 package section8.q5;
 
-import java.io.*;
-import java.util.*;
+// 재귀 / DFS / Back Tracking / 스택 프레임 / 이진트리 순회 에 대한 개념을 위한 중요한 예제
+//    1
+//  2   3 
+// 4 5 6 7
+// 루트를 방문하는 위치에 따라서 아래 3가지로 나뉨
+// 전위 순회 : 루트 왼쪽 오른쪽 (루왼오)
+// 중위 순회 : 왼쪽 루트 오른쪽 (왼루오)
+// 후위 순회 : 왼쪽 오른쪽 루트 (왼오루)
+class Node {
+    int data;
+    Node lt;
+    Node rt;
+
+    public Node(int val) {
+        this.data = val;
+        lt = null;
+        rt = null;
+    }
+}
 
 public class Main {
-    public int solution(String word, char c) {
-        int answer = 0;
-        return answer;
+    Node root;
+
+    public void recursive(Node node) {
+        if (node == null) {
+            return;
+        } else {
+            recursive(node.lt);
+            recursive(node.rt);
+            System.out.print(node.data + " ");
+        }
     }
 
     public static void main(String[] args) throws Exception {
-        Main m = new Main();
+        Main tree = new Main();
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        tree.root = new Node(1);
+        tree.root.lt = new Node(2);
+        tree.root.rt = new Node(3);
+        tree.root.lt.lt = new Node(4);
+        tree.root.lt.rt = new Node(5);
+        tree.root.rt.lt = new Node(6);
+        tree.root.rt.rt = new Node(7);
 
-        String word = br.readLine();
-        char c = br.readLine().charAt(0);
-
-        System.out.println(m.solution(word, c));
+        tree.recursive(tree.root);
     }
 }
