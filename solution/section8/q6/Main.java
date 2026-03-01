@@ -1,7 +1,5 @@
 package section8.q6;
 
-import java.util.*;
-
 // 3
 // 1 2 3
 // 1 2
