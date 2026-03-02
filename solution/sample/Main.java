@@ -1,7 +1,6 @@
 package sample;
 
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public int solution(String word, char c) {

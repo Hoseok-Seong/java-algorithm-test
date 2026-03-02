@@ -1,7 +1,6 @@
 package section7.q5;
 
 import java.io.*;
-import java.util.*;
 
 public class Main {
     public int solution(String word, char c) {
