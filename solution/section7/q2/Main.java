@@ -4,11 +4,16 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    // 버블정렬
+    // 입력
     // 6
     // 13 5 11 7 23 15
+    // 출력
+    // 5 7 11 13 15 23
     public String solution(int n, int[] arr) {
         StringBuilder sb = new StringBuilder();
 
+        // 구현부
         for (int i=0; i<n-1; i++) {
             for (int j=0; j<n-i-1; j++) {
                 if (arr[j] > arr[j+1]) {
