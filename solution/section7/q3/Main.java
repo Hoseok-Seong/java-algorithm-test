@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main {
     // 삽입정렬
+    // 삽입  →  뽑아서 왼쪽 정렬된 곳에 끼워넣기
     // 입력
     // 6
     // 11 7 5 6 10 9

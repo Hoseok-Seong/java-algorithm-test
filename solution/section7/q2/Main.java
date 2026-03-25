@@ -5,6 +5,7 @@ import java.util.*;
 
 public class Main {
     // 버블정렬
+    // 버블  →  옆이랑 비교해서 큰 거 뒤로 밀기
     // 입력
     // 6
     // 13 5 11 7 23 15

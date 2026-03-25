@@ -4,6 +4,8 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    // 선택 정렬
+    // 선택  →  최솟값 골라서 앞에 꽂기
     // 입력
     // 6
     // 13 5 11 7 23 15
