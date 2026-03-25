@@ -4,11 +4,16 @@ import java.io.*;
 import java.util.*;
 
 public class Main {
+    // 삽입정렬
+    // 입력
     // 6
     // 11 7 5 6 10 9
+    // 출력
+    // 5 6 7 9 10 11
     public String solution(int n, int[] arr) {
         StringBuilder sb = new StringBuilder();
 
+        // 구현부
         for (int i=1; i<n; i++) {
             int tmp = arr[i];
             int j;
